@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const AppState = {
         config: {
-            nombreProyecto: 'Supervisión de Campo',
-            metaEncuestas: 2500,
+            nombreProyecto: 'Encuesta Quito - Septiembre - 2025',
+            metaEncuestas: 1200,
             campoEncuestador: 'cod_enc',
             campoSupervisor: 'cod_sup'
         },
@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
         configurarNavegacionMovil();
         configurarEventos();
 
-        // 1. Limpieza de caché previa y Boot Instantáneo Pichincha 2026
+        // 1. Limpieza de caché previa y arranque de la encuesta de Quito
         try {
             ['cs_encuestas_cache', 'cs_encuestas_machala_v1', 'cs_encuestas_pichincha_v1'].forEach(k => {
                 if (localStorage.getItem(k)) localStorage.removeItem(k);
@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 AppState.config = { ...AppState.config, ...configData };
             }
             if (UI.tituloProyecto) {
-                let nom = AppState.config.nombreProyecto || 'Encuesta Pichincha 2026';
+                let nom = AppState.config.nombreProyecto || 'Encuesta Quito - Septiembre - 2025';
                 UI.tituloProyecto.textContent = nom;
                 document.title = 'Clima Social · ' + nom;
             }
@@ -1024,7 +1024,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         };
 
-        // 1.1 Selector Cantón (4 Cantones de la Encuesta Pichincha 2026)
+        // 1.1 Selector territorial de la encuesta de Quito
         if (UI.cantonFilter) {
             const actualCan = AppState.cantonSeleccionado || 'Todos';
             const cantonesList = [
@@ -1331,7 +1331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     function actualizarKPIs(encuestas) {
         const total = encuestas.length;
-        const meta = AppState.config.metaEncuestas || 2500;
+        const meta = AppState.config.metaEncuestas || 1200;
         
         const hoyStr = obtenerFechaLocalEcuador();
         const hoy = encuestas.filter(e => {

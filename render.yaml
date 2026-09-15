@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: herramienta-de-campo
+    name: encuesta-quito-septiembre-2025
     env: node
     plan: free
     buildCommand: npm install
@@ -13,12 +13,12 @@ services:
       - key: API_TOKEN
         sync: false
       - key: NOMBRE_PROYECTO
-        value: Encuesta Pichincha 2026
+        value: Encuesta Quito - Septiembre - 2025
       - key: CAMPO_ENCUESTADOR
         value: C_digo_encuestador
       - key: CAMPO_SUPERVISOR
         value: C_digo_Supervisor
       - key: META_ENCUESTAS
-        value: 2500
+        value: 1200
       - key: CACHE_TTL_SEGUNDOS
         value: 90

@@ -30,9 +30,8 @@ function limpiarVar(val) {
 
 const PORT = Number(process.env.PORT) || 3001;
 
-// Desconexión estricta de formulario de Machala:
-// Solo se conectará a Kobo cuando se defina explícitamente ASSET_ID_PICHINCHA.
-// Cualquier variable heredada de proyectos anteriores queda desactivada.
+// La nueva encuesta empieza desconectada. Solo se consultará Kobo cuando se
+// configure explícitamente el Asset UID de Quito.
 const ASSET_ID = limpiarVar(process.env.ASSET_ID_PICHINCHA || "");
 const API_TOKEN = limpiarVar(process.env.API_TOKEN || "");
 const LIMITE_POR_PAGINA = 500;
@@ -40,7 +39,7 @@ const CACHE_TTL_MS = (Number(process.env.CACHE_TTL_SEGUNDOS) || 90) * 1000;
 const TIMEOUT_MS = 30000;
 
 if (!ASSET_ID) {
-    console.log("[SUPERVISOR] ℹ  API de Machala desconectada. Esperando configuración de ASSET_ID_PICHINCHA.");
+    console.log("[SUPERVISOR] ℹ  Encuesta sin datos. Esperando configuración de ASSET_ID_PICHINCHA.");
 }
 
 // =======================================
@@ -290,10 +289,10 @@ app.get("/api/health", (req, res) => {
 
 app.get("/api/config", (req, res) => {
     res.set("Cache-Control", "no-cache, no-store, must-revalidate");
-    let nombre = process.env.NOMBRE_PROYECTO || "Encuesta Pichincha 2026";
+    let nombre = process.env.NOMBRE_PROYECTO || "Encuesta Quito - Septiembre - 2025";
     res.json({
         nombreProyecto: nombre,
-        metaEncuestas: Number(process.env.META_ENCUESTAS) || 1000,
+        metaEncuestas: Number(process.env.META_ENCUESTAS) || 1200,
         campoEncuestador: process.env.CAMPO_ENCUESTADOR || "cod_encu",
         campoSupervisor: process.env.CAMPO_SUPERVISOR || "cod_sup",
         centroLng: process.env.MAPA_CENTRO_LNG ? Number(process.env.MAPA_CENTRO_LNG) : -78.4678,
@@ -309,7 +308,7 @@ app.get("/api/encuestas", async (req, res) => {
                 total: 0,
                 resultados: [],
                 obtenidoEn: Date.now(),
-                mensaje: "Esperando configuración de formulario para Encuesta Pichincha 2026"
+                mensaje: "Esperando configuración del formulario de Encuesta Quito - Septiembre - 2025"
             });
         }
         const datos = await obtenerDatosKobo();

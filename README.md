@@ -1,6 +1,6 @@
-# 🧭 Panel de Supervisión de Campo · Clima Social
+# 🧭 Encuesta Quito - Septiembre - 2025
 
-Sistema integral de visualización geoespacial y seguimiento en tiempo real de operaciones de levantamiento de encuestas en territorio, conectado directamente con **KoboToolbox** y potenciado por un motor gráfico **WebGL / GPU (MapLibre GL JS)**.
+Panel de supervisión de campo para la encuesta de Quito de septiembre de 2025, con una meta de **1.200 encuestas**. Se conecta a **KoboToolbox** y utiliza **MapLibre GL JS** para la visualización geoespacial.
 
 ---
 
@@ -9,7 +9,7 @@ Sistema integral de visualización geoespacial y seguimiento en tiempo real de o
 - **🗺️ Motor WebGL Nativo (GPU):**
   - Renderizado fluido a 60 FPS sin glitches ni parpadeos.
   - Cero dependencias de API keys externas con mosaicos cartográficos de alta velocidad.
-  - Capas vectoriales de **Límites Parroquiales (36 parroquias)** y **Sectores Censales (77 sectores de Cuenca)**.
+  - Capas vectoriales de **42 parroquias** y **70 sectores censales de Quito**.
   - Aislamiento visual automático y auto-zoom cinemático por sector con enlace directo a **Google Maps Navigation**.
 
 - **📊 Tablero de Control y KPIs:**
@@ -78,7 +78,7 @@ Sistema integral de visualización geoespacial y seguimiento en tiempo real de o
 ├── public/
 │   ├── assets/
 │   │   ├── parroquias.geojson        # Capa de parroquias cantonales
-│   │   └── sectores_censales.geojson # Capa de 77 sectores censales
+│   │   └── sectores_censales.geojson # Capa de 70 sectores censales de Quito
 │   ├── fonts/                         # Glifos vectoriales PBF locales
 │   ├── libs/
 │   │   ├── maplibre-gl.js            # Motor WebGL MapLibre
