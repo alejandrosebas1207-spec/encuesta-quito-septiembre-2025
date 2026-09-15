@@ -12,13 +12,13 @@ services:
         sync: false
       - key: API_TOKEN
         sync: false
-      - key: NOMBRE_PROYECTO
+      - key: NOMBRE_PROYECTO_QUITO
         value: Encuesta Quito - Septiembre - 2025
       - key: CAMPO_ENCUESTADOR
         value: C_digo_encuestador
       - key: CAMPO_SUPERVISOR
         value: C_digo_Supervisor
-      - key: META_ENCUESTAS
+      - key: META_ENCUESTAS_QUITO
         value: 1200
       - key: CACHE_TTL_SEGUNDOS
         value: 90

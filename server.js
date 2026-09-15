@@ -289,10 +289,12 @@ app.get("/api/health", (req, res) => {
 
 app.get("/api/config", (req, res) => {
     res.set("Cache-Control", "no-cache, no-store, must-revalidate");
-    let nombre = process.env.NOMBRE_PROYECTO || "Encuesta Quito - Septiembre - 2025";
+    // Variables propias para impedir que una configuración heredada del servicio
+    // archivado de Ibarra reemplace los valores de esta encuesta.
+    let nombre = process.env.NOMBRE_PROYECTO_QUITO || "Encuesta Quito - Septiembre - 2025";
     res.json({
         nombreProyecto: nombre,
-        metaEncuestas: Number(process.env.META_ENCUESTAS) || 1200,
+        metaEncuestas: Number(process.env.META_ENCUESTAS_QUITO) || 1200,
         campoEncuestador: process.env.CAMPO_ENCUESTADOR || "cod_encu",
         campoSupervisor: process.env.CAMPO_SUPERVISOR || "cod_sup",
         centroLng: process.env.MAPA_CENTRO_LNG ? Number(process.env.MAPA_CENTRO_LNG) : -78.4678,

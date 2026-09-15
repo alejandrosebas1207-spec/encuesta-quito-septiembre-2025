@@ -1543,16 +1543,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 version: 8,
                 glyphs: 'https://fonts.openmaptiles.org/{fontstack}/{range}.pbf',
                 sources: {
-                    'osm-tiles': {
+                    'esri-tiles': {
                         type: 'raster',
                         tiles: [
-                            'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                            'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                            'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
                         ],
                         tileSize: 256,
-                        maxzoom: 19,
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        maxzoom: 23,
+                        attribution: 'Fuentes: Esri, HERE, Garmin, USGS, OpenStreetMap y la comunidad GIS'
                     },
                     'cantones-source': {
                         type: 'geojson',
@@ -1573,9 +1571,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 layers: [
                     {
-                        id: 'osm-layer',
+                        id: 'esri-layer',
                         type: 'raster',
-                        source: 'osm-tiles',
+                        source: 'esri-tiles',
                         minzoom: 0,
                         maxzoom: 22
                     },
